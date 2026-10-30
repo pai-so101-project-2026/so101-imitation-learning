@@ -1,0 +1,169 @@
+{
+  "dataset": {
+    "repo_id": "local/so101_c270_pick_place_05",
+    "root": "/datasets/so101_c270_pick_place_05",
+    "episodes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "image_transforms": {
+      "enable": false,
+      "max_num_transforms": 3,
+      "random_order": false,
+      "tfs": {
+        "brightness": {
+          "weight": 1.0,
+          "type": "ColorJitter",
+          "kwargs": {
+            "brightness": [
+              0.8,
+              1.2
+            ]
+          }
+        },
+        "contrast": {
+          "weight": 1.0,
+          "type": "ColorJitter",
+          "kwargs": {
+            "contrast": [
+              0.8,
+              1.2
+            ]
+          }
+        },
+        "saturation": {
+          "weight": 1.0,
+          "type": "ColorJitter",
+          "kwargs": {
+            "saturation": [
+              0.5,
+              1.5
+            ]
+          }
+        },
+        "hue": {
+          "weight": 1.0,
+          "type": "ColorJitter",
+          "kwargs": {
+            "hue": [
+              -0.05,
+              0.05
+            ]
+          }
+        },
+        "sharpness": {
+          "weight": 1.0,
+          "type": "SharpnessJitter",
+          "kwargs": {
+            "sharpness": [
+              0.5,
+              1.5
+            ]
+          }
+        }
+      }
+    },
+    "revision": null,
+    "use_imagenet_stats": true,
+    "video_backend": "torchcodec",
+    "streaming": false
+  },
+  "env": null,
+  "policy": {
+    "type": "act",
+    "n_obs_steps": 1,
+    "input_features": {
+      "observation.state": {
+        "type": "STATE",
+        "shape": [
+          6
+        ]
+      },
+      "observation.images.top": {
+        "type": "VISUAL",
+        "shape": [
+          3,
+          480,
+          640
+        ]
+      }
+    },
+    "output_features": {
+      "action": {
+        "type": "ACTION",
+        "shape": [
+          6
+        ]
+      }
+    },
+    "device": "cpu",
+    "use_amp": false,
+    "push_to_hub": false,
+    "repo_id": null,
+    "private": null,
+    "tags": null,
+    "license": null,
+    "pretrained_path": null,
+    "chunk_size": 50,
+    "n_action_steps": 50,
+    "normalization_mapping": {
+      "VISUAL": "MEAN_STD",
+      "STATE": "MEAN_STD",
+      "ACTION": "MEAN_STD"
+    },
+    "vision_backbone": "resnet18",
+    "pretrained_backbone_weights": "ResNet18_Weights.IMAGENET1K_V1",
+    "replace_final_stride_with_dilation": false,
+    "pre_norm": false,
+    "dim_model": 256,
+    "n_heads": 8,
+    "dim_feedforward": 1024,
+    "feedforward_activation": "relu",
+    "n_encoder_layers": 2,
+    "n_decoder_layers": 1,
+    "use_vae": true,
+    "latent_dim": 16,
+    "n_vae_encoder_layers": 2,
+    "temporal_ensemble_coeff": null,
+    "dropout": 0.1,
+    "kl_weight": 10.0,
+    "optimizer_lr": 0.0001,
+    "optimizer_weight_decay": 0.0001,
+    "optimizer_lr_backbone": 1e-05
+  },
+  "output_dir": "outputs/train/act_so101_c270_pick_place_05_cpu_20k_holdout_002",
+  "job_name": "act_so101_20k_holdout",
+  "resume": false,
+  "seed": 1000,
+  "num_workers": 0,
+  "batch_size": 8,
+  "steps": 20000,
+  "eval_freq": 0,
+  "log_freq": 10,
+  "save_checkpoint": true,
+  "save_freq": 500,
+  "use_policy_training_preset": true,
+  "optimizer": null,
+  "scheduler": null,
+  "eval": {
+    "n_episodes": 50,
+    "batch_size": 50,
+    "use_async_envs": false
+  },
+  "wandb": {
+    "enable": false,
+    "disable_artifact": false,
+    "project": "lerobot",
+    "entity": null,
+    "notes": null,
+    "run_id": null,
+    "mode": null
+  }
+}

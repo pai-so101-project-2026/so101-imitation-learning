@@ -1,0 +1,13 @@
+diff --git a/src/lerobot/scripts/lerobot_train.py b/src/lerobot/scripts/lerobot_train.py
+index bc66618c..79be56b4 100644
+--- a/src/lerobot/scripts/lerobot_train.py
++++ b/src/lerobot/scripts/lerobot_train.py
+@@ -251,7 +251,7 @@ def train(cfg: TrainPipelineConfig):
+         sampler=sampler,
+         pin_memory=device.type == "cuda",
+         drop_last=False,
+-        prefetch_factor=2,
++        prefetch_factor=2 if cfg.num_workers > 0 else None,
+     )
+     dl_iter = cycle(dataloader)
+ 

@@ -1,0 +1,26 @@
+[
+  {
+    "frame": 63,
+    "seconds": 2.0999999046325684,
+    "to": "open",
+    "gripper_action": 15.73926830291748
+  },
+  {
+    "frame": 159,
+    "seconds": 5.300000190734863,
+    "to": "closed",
+    "gripper_action": 0.476947546005249
+  },
+  {
+    "frame": 280,
+    "seconds": 9.333333015441895,
+    "to": "open",
+    "gripper_action": 15.103338241577148
+  },
+  {
+    "frame": 304,
+    "seconds": 10.133333206176758,
+    "to": "closed",
+    "gripper_action": 1.271860122680664
+  }
+]
